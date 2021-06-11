@@ -30,11 +30,12 @@
 
 ##課題点
 - 部分一致検索において意図しない挙動になっている。ThreadsController@searchにおいて、部分検索にかからない場合はスレッドを全件表示したいが0件の表示になってしまう。
-- ModelとControllerの分離が行えていない。理想系が不明。
-- laravel sailによって立ち上がった各コンテナの役割の理解が曖昧。Dockerに対する理解が不足。
+- ModelとControllerの分離が行えていない。
+- laravel sailによって立ち上がった各コンテナの役割・Dockerに対する理解。
+- 認証周辺の理解。
 ##気をつけた点・学んだ点
 - 部分検索におけるエスケープ機能
-- DB接続回数（N+1問題）に気をつけ、Eagerloadを行った
+- DB接続回数に気をつけ、Eagerloadを行った
 - フラッシュ利用による投稿・削除成功メッセージの表示
 - 共通した処理を別の処理としてまとめた(RegisterController@storeImage)
 - validationエラーのbootstrapを利用した警告表示
