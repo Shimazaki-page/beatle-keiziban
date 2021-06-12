@@ -16,7 +16,6 @@
   - ThreadsController　多くの表示に関する処理が記載
   - RegisterController　DBに保存する処理が記載
   - DeleteController  DBから削除する処理が記載
-    
   - CommentRequest,ThreadRequest　バリデーションに関する処理が記載
   - web.php　ルーティングに関する処理が記載
   - migration関係　Factoryでseedを作成
@@ -30,9 +29,10 @@
 
 ##課題点
 - 部分一致検索において意図しない挙動になっている。ThreadsController@searchにおいて、部分検索にかからない場合はスレッドを全件表示したいが0件の表示になってしまう。
-- ModelとControllerの分離が行えていない。
+- ModelとControllerの分離。
 - laravel sailによって立ち上がった各コンテナの役割・Dockerに対する理解。
 - 認証周辺の理解。
+
 ##気をつけた点・学んだ点
 - 部分検索におけるエスケープ機能
 - DB接続回数に気をつけ、Eagerloadを行った
