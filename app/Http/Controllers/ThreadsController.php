@@ -78,9 +78,11 @@ class ThreadsController extends Controller
         if (!empty($keyword)) {
             $scope = $query->where('title', 'LIKE', $key);
             if ($scope->exists()) {
-                $threads = $scope->orderBy('created_at', 'desc')->paginate(2);
+                $threads = $scope->orderBy('created_at', 'desc')->paginate(5);
             } else {
+//                dd($query);
                 $threads = $query->orderBy('created_at', 'desc')->paginate(5);
+//                $threads=Thread::with('category')->get();
 //       検索ワードに引っかからない時、何も表示されない
             }
         } else {
