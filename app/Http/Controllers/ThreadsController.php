@@ -58,7 +58,7 @@ class ThreadsController extends Controller
         }
 
         return view('thread')->with([
-            'category'=>$category,
+            'category' => $category,
             'thread' => $thread,
             'comments' => $comments,
         ]);
@@ -73,12 +73,12 @@ class ThreadsController extends Controller
         $keyword = $request->input('keyword') ?? null;
         $key = '%' . addcslashes($keyword, '%_\\') . '%';
 
-        $query = Thread::with('category');
+//       $query = Thread::with('category');
 //       コメントアウトした処理にすると検索ワードに引っかからない時、何も表示されない
         if (!empty($keyword)) {
             $scope = Thread::with('category')->where('title', 'LIKE', $key);
 //          $scope = $query->where('title','LIKE',$key);
-//            ここで$queryの中身が変わってしまってるから（？）
+//          ここで$queryの中身が変わってしまってるから（？）
             if ($scope->exists()) {
                 $threads = $scope->orderBy('created_at', 'desc')->paginate(5);
             } else {
