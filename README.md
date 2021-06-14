@@ -1,4 +1,5 @@
 #カブトムシ掲示板  
+※beatle-branchブランチが最新です。
 
 ##概要  
 画像投稿できるユーザー匿名性の掲示板を作成しました。
@@ -25,13 +26,14 @@
 ##環境
 - [Laravel Sail](https://readouble.com/laravel/8.x/ja/sail.html)
   を使用(Laravel 8.41.0,PHP 8.0.5,MySQL,Redis)
+- sail up -dで起動。  
 - IDEはPhpStormを使用
 
 ##課題点
 - 部分一致検索において意図しない挙動になっている。ThreadsController@searchにおいて、部分検索にかからない場合はスレッドを全件表示したいが0件の表示になってしまう。
 - ModelとControllerの分離。
 - laravel sailによって立ち上がった各コンテナの役割・Dockerに対する理解。
-- 認証周辺の理解。
+- 認証周辺、ページネーションの理解。
 
 ##気をつけた点・学んだ点
 - 部分検索におけるエスケープ機能
