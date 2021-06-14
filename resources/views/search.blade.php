@@ -30,7 +30,7 @@
 
     @if(!empty($threads))
     <div class="d-flex justify-content-center">
-        {{$threads->links()}}
+        {{$threads->appends(request()->query())->links()}}
     </div>
     @endif
 
