@@ -14,7 +14,7 @@
   - 検索機能はスレタイの部分一致検索です。空白・部分一致しなかった場合は全件表示されます。
     
 - 技術的機能一覧
-  - ThreadsController　多くの表示に関する処理が記載
+  - ThreadsController　表示に関する処理が記載
   - RegisterController　DBに保存する処理が記載
   - DeleteController  DBから削除する処理が記載
   - CommentRequest,ThreadRequest　バリデーションに関する処理が記載
@@ -31,6 +31,8 @@
   - ```cp .env.example .env```
 - PHPのパッケージをインストール(PHPかcomposerがインストールされている状態で)
   - ```composer install```
+- sailコマンドを短縮する
+  - ```alias sail = 'bash vendor/bin/sail'```
 - コンテナ起動
   - ```sail up -d```
 - laravelコンテナ内に入る
@@ -41,9 +43,11 @@
 - ```localhost```でTOP画面が開きます。
   - ```localhost/login```でログイン画面です。
   -  ```localhost:8025```でmailhogの画面が開きます。
+  - ```localhost:8080```でphpmyadminが開きます。(ユーザ名:sail,パスワード:password)  
 
-- コンテナ停止
-    - ```sail down```
+- コンテナ外に出る・コンテナ停止
+  - ```exit```
+  - ```sail down```
 ##課題点
 - ~~部分一致検索において意図しない挙動になっている。ThreadsController@searchにおいて、部分検索にかからない場合はスレッドを全件表示したいが0件の表示になってしまう。~~(動作改善したが冗長)
 - ModelとControllerの分離。
