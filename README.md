@@ -26,6 +26,7 @@
 ##環境
 - [Laravel Sail](https://readouble.com/laravel/8.x/ja/sail.html)
   を使用(Laravel 8.41.0,PHP 8.0.5,MySQL,Redis)
+  
   ###手順
 - ```.env```ファイル作成(以下```docker-compose.yml```のあるディレクトリで行う)
   - ```cp .env.example .env```
