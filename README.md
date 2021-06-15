@@ -26,15 +26,24 @@
 ##環境
 - [Laravel Sail](https://readouble.com/laravel/8.x/ja/sail.html)
   を使用(Laravel 8.41.0,PHP 8.0.5,MySQL,Redis)
+  ###手順
+- ```.env```ファイル作成(以下```docker-compose.yml```のあるディレクトリで行う)
+  - ```cp .env.example .env```
+- PHPのパッケージをインストール(PHPかcomposerがインストールされている状態で)
+  - ```composer install```
 - コンテナ起動
-  - ```docker-compose.yml```のあるディレクトリで```sail up -d```
-- コンテナ停止
-  - ```sail down```
-- workspaceコンテナ内に入る
+  - ```sail up -d```
+- laravelコンテナ内に入る
   - ```sail shell```
 - マイグレーション実行・table作成    
-  - workspaceコンテナ内で```php artisan migrate --seed```  
+  - laravelコンテナ内で```php artisan migrate --seed```  
+    
+- ```localhost```でTOP画面が開きます。
+  - ```localhost/login```でログイン画面です。
+  -  ```localhost:8025```でmailhogの画面が開きます。
 
+- コンテナ停止
+    - ```sail down```
 ##課題点
 - ~~部分一致検索において意図しない挙動になっている。ThreadsController@searchにおいて、部分検索にかからない場合はスレッドを全件表示したいが0件の表示になってしまう。~~(動作改善したが冗長)
 - ModelとControllerの分離。
