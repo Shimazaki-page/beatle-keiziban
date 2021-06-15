@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-    <x-header></x-header>
     <div class="mt-5" style="width: 50%; margin: 0 auto; max-width: 700px;">
         <p>タイトル：{{$thread->title}}</p>
         <p>コメント：{{$thread->contents}}</p>

@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-    <x-header></x-header>
     <div class="mt-5" style="width: 50%; margin: 0 auto; max-width: 700px;">
         <p>コメント：{{$comment->contents}}</p>
         <p>投稿者：{{$comment->name}}</p>
