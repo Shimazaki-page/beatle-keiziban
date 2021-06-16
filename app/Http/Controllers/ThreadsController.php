@@ -73,8 +73,8 @@ class ThreadsController extends Controller
         $keyword = $request->input('keyword') ?? null;
         $key = '%' . addcslashes($keyword, '%_\\') . '%';
 
+//       コメントアウトした部分の処理を行うと検索ワードに引っかからない時、何も表示されない
 //       $query = Thread::with('category');
-//       コメントアウトした処理にすると検索ワードに引っかからない時、何も表示されない
         if (!empty($keyword)) {
             $scope = Thread::with('category')->where('title', 'LIKE', $key);
 //          $scope = $query->where('title','LIKE',$key);

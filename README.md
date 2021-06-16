@@ -51,18 +51,23 @@ laravel学習のため、画像投稿できるユーザー匿名性の掲示板�
   - ```sail down```
     
 ## 課題点
-- ~~部分一致検索において意図しない挙動になっている。ThreadsController@searchにおいて、部分検索にかからない場合はスレッドを全件表示したいが0件の表示になってしまう。~~(動作改善したが冗長)
-- ER図で画像パスのカラムが表示されない（nullだから）  
-- ModelとControllerの分離。
-- laravel sailによって立ち上がった各コンテナの役割・Dockerに対する理解。
-- 認証周辺、ページネーションの処理内容の理解。
-- クラスの深堀り（eloquentビルダー,queryビルダー, collectionあたり）
+- ~~部分一致検索において意図しない挙動になっている。ThreadsController@searchにおいて、部分検索にかからない場合はスレッドを全件表示したいが0件の表示になってしまう。~~ThreadsControllerのsearchThreadメソッドにおいて似たような処理が続いてしまう点
+- PhpStormで生成したER図で画像パス()のカラムが表示されない問題  
+- Controllerにほとんどの処理を書いており、どのようにModelに役割を分散させられるか判断できない
+- laravel sailによって立ち上がった各コンテナの役割・Dockerに対する理解の不足
+- 認証機能、ページネーションの処理内容の理解の不足
 
 ## 気をつけた点・学んだ点
 - 部分検索におけるエスケープ機能
+  - \\_%を```addcslashes()```によってエスケープすることで、ワイルドカードを含んだ文字列を検索できるようにした
 - DB接続回数に気をつけ、Eagerloadを行った
+  - viewでリレーションプロパティを使ってforeachでまわすとN+1問題が起こるので、あらかじめEagerloadを行って回避した
 - フラッシュ利用による投稿・削除成功メッセージの表示
-- 共通した処理を別の処理としてまとめた(RegisterController@storeImage)
-- validationエラーのbootstrapを利用した警告表示
+  - ```redirect()->with()```におけるwithメソッドを用いて、次の画面移動まで一時的にデータをsessionに保存しておく
+- 共通した処理を別の処理としてまとめた
+  - RegisterControllerのaddCommentメソッドとaddThreadメソッドに共通する、画像を保存する処理をstoreImageメソッドにまとめた
+- bootstrapを利用した、validationエラーの表示
+  - フォームのinputタグのクラスに、@errorを用いてis-invalidクラスを付与し、エラーメッセージにはinvalid-feedbackクラスを与えた
 - コントローラーに詰め込みすぎないようにフォームリクエストを利用
+  - バリデーション処理はフォームリクエストにまとめた
 
