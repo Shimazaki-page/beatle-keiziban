@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-    <x-header></x-header>
     <div style="width: 50%; margin: 0 auto;max-width: 700px;">
         <div class="mx-auto mt-5 text-center">
             <h1>投稿するスレッドの確認</h1>
