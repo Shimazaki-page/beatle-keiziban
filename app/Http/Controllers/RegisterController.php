@@ -90,7 +90,12 @@ class RegisterController extends Controller
             ->with('add_thread', 'スレッドを作成しました。');
     }
 
-    public function storeImage($request,$path)
+    /**
+     * @param $request
+     * @param $path
+     * @return array|string|string[]|null
+     */
+    public function storeImage($request, $path)
     {
         if (!empty($request->file('image'))){
             $image_path=$request->file('image')->store('public/'.$path);
